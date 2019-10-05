@@ -7,7 +7,7 @@ int login();
 int loginconsumer();
 int loginfarmer();
 int menuconsumer();
-int menufarmer();
+int menufarmer(int x);
 int additem();
 int modifyitem();
 
@@ -15,6 +15,7 @@ vector <string> productname;
 vector <string> productquantity;
 vector <string> productprice;
 vector <string> usernamefarmer;
+vector <string> usernumber;
 
 
 
@@ -41,6 +42,7 @@ int loginconsumer(){
 	int opt;
 	string user;
 	string pass;
+	string passconf;
 	
 	vector <string> username;
 	
@@ -84,11 +86,17 @@ int loginconsumer(){
 		}else if(opt==2){
 			cout<<"enter username : ";
 			cin>>user;
-			username.push_back(user);
 			cout<<"Enter password : ";
 			cin>>pass;
-			password.push_back(pass);
-			cout<<"Registration successful : \n";
+			cout<<"Confirm password : ";
+			cin>>passconf;
+			if(pass==passconf){
+				username.push_back(user);
+				password.push_back(pass);
+				cout<<"Registration successful : \n";
+			}else{
+				cout<<"Password not match : \n Try again \n";
+			}
 			goto loginherecom;
 			
 		}
@@ -100,6 +108,8 @@ int loginfarmer(){
 	int opt;
 	string user;
 	string pass;
+	string passconf;
+	string numb;
 	
 	usernamefarmer.push_back("RAM");
 	usernamefarmer.push_back("KANTI");
@@ -114,6 +124,12 @@ int loginfarmer(){
 	password.push_back("2222");
 	password.push_back("3333");
 	password.push_back("4444");
+	
+	usernumber.push_back("8765409834");
+	usernumber.push_back("6798234832");
+	usernumber.push_back("7656456792");
+	usernumber.push_back("9678564319");
+	usernumber.push_back("8624657890");
 	
 	loginherefar:
 		
@@ -134,18 +150,27 @@ int loginfarmer(){
 			if(password[a]==pass && usernamefarmer[a]==user){
 				cout<<"login successful \n";
 				cout<<"\n \n";
-				menufarmer();
+				menufarmer(a);
 			}else{
 				cout<<"Invalid username or password";
 			}
 		}else if(opt==2){
 			cout<<"enter username : ";
 			cin>>user;
-			usernamefarmer.push_back(user);
+			cout<<"Enter phone number : ";
+			cin>>numb;
 			cout<<"Enter password : ";
 			cin>>pass;
-			password.push_back(pass);
-			cout<<"Registration successful : \n";
+			cout<<"Confirm password : ";
+			cin>>passconf;
+			if(pass==passconf){
+				usernamefarmer.push_back(user);
+				usernumber.push_back(numb);
+				password.push_back(pass);
+				cout<<"Registration successful : \n";
+			}else{
+				cout<<"Password not match : \n Try again \n";
+			}
 			goto loginherefar;
 			
 		}
@@ -170,12 +195,12 @@ int loginfarmer(){
           break;
         }
     }
-        cout<<"Farmer Name \t Product Quantity(quintal) \t Product Price(per quintal)\n";
-        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t\t"<<productquantity[p]<<"\n";
+        cout<<"Farmer Name \t Product Quantity(quintal) \t Product Price(per quintal)\t Contact Number \n";
+        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t\t"<<productquantity[p]<<"\t\t\t\t"<<usernumber[p]<<"\n";
     srand(time(0));
     for(k=0;k<usernamefarmer.size();k++){
     	if(k!=p){
-        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%10+20<<"\t\t\t\t"<<rand()%85+1100<<"\n";
+        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%10+20<<"\t\t\t\t"<<rand()%85+1100<<"\t\t\t\t"<<usernumber[k]<<"\n";
     	}
 	}
         cout<<"you want to see more item ? enter 1 for yes enter 2 for no" ;
@@ -187,25 +212,36 @@ int loginfarmer(){
 	}
 	
 	
-	int menufarmer(){
+	int menufarmer(int x){
 		
 		int opt;
 				
 		productname.push_back("RICE");
 		productname.push_back("WHEAT");
 		productname.push_back("CORN");
-		productname.push_back("MAZE"); 
+		productname.push_back("MAZE");
 		
-		productquantity.push_back("20");
-		productquantity.push_back("25");
-		productquantity.push_back("32");
-		productquantity.push_back("27");
+		if(x<=4){		
+			productquantity.push_back("20");
+			productquantity.push_back("25");
+			productquantity.push_back("32");
+			productquantity.push_back("27");
 
-		productprice.push_back("1250");
-		productprice.push_back("1270");
-		productprice.push_back("1200");
-		productprice.push_back("1225");
+			productprice.push_back("1250");
+			productprice.push_back("1270");
+			productprice.push_back("1200");
+			productprice.push_back("1225");
+		}else{
+			productquantity.push_back("0");
+			productquantity.push_back("0");
+			productquantity.push_back("0");
+			productquantity.push_back("0");
 
+			productprice.push_back("0");
+			productprice.push_back("0");
+			productprice.push_back("0");
+			productprice.push_back("0");
+		}
 		cout<<"Product Name \t Product Quantity \t Product Price \n";
 		
 		for(int i=0;i<productname.size();i++){
