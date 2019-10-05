@@ -8,6 +8,13 @@ int loginconsumer();
 int loginfarmer();
 int menuconsumer();
 int menufarmer();
+int additem();
+
+
+vector <string> productname;
+vector <string> productquantity;
+vector <string> productprice;
+vector <string> usernamefarmer;
 
 
 int main(){
@@ -80,12 +87,12 @@ int loginfarmer(){
 	int opt;
 	string user;
 	string pass;
-	vector <string> username;
-	username.push_back("RAM");
-	username.push_back("KANTI");
-	username.push_back("RAJ");
-	username.push_back("MUKESH");
-	username.push_back("LALA");
+	vector <string> usernamefarmer;
+	usernamefarmer.push_back("RAM");
+	usernamefarmer.push_back("KANTI");
+	usernamefarmer.push_back("RAJ");
+	usernamefarmer.push_back("MUKESH");
+	usernamefarmer.push_back("LALA");
 	vector <string> password;
 	password.push_back("0000");
 	password.push_back("1111");
@@ -101,13 +108,13 @@ int loginfarmer(){
 			cout<<"Enter password : ";
 			cin>>pass;
 			int a;
-			for(int i=0;i<username.size();i++){
+			for(int i=0;i<usernamefarmer.size();i++){
 				a=i;
-				if(username[i]==user){
+				if(usernamefarmer[i]==user){
 					break;
 				}
 			}
-			if(password[a]==pass && username[a]==user){
+			if(password[a]==pass && usernamefarmer[a]==user){
 				cout<<"login successful \n";
 				cout<<"\n \n";
 			}else{
@@ -116,7 +123,7 @@ int loginfarmer(){
 		}else if(opt==2){
 			cout<<"enter username : ";
 			cin>>user;
-			username.push_back(user);
+			usernamefarmer.push_back(user);
 			cout<<"Enter password : ";
 			cin>>pass;
 			password.push_back(pass);
@@ -133,71 +140,62 @@ int menuconsumer(){
 	
 	
 int menufarmer(){
-	int a1,b1,y1,e1,u,p1,p2,p3,p4,y2,c1,r;
-	printf("YOUR PREVIOUS STOCK REPORT\n");
-	printf("--------------------------------------------------------------------------------------------------------------\n");
-	printf("QUANTITY OF RICE : 50KG\n");
-	printf("QUANTITY OF WHEAT : 100KG\n");
-	printf("QUANTITY OF SUGARCANE : 100KG\n");
-	printf("QUANTITY OF CORN : 70KG\n");
-	printf("Do you want to update your previous stock report\n");
-	printf("---------------------------------------------------------------------------------------------------------------\n");
-	printf("enter 0 for yes and enter 1 for no\n");
-	scanf("%d",&a1);
-	printf("---------------------------------------------------------------------------------------------------------------\n"); 
-	if(a1==0)
-	{
-		printf("QUANTITY OF RICE NOW :");
-		scanf("%d",&b1);
-		printf("\nQUANTITY OF WHEAT :");
-		scanf("%d",&c1);
-		printf("\nQUANTITY OF SUGARCANE");
-		scanf("%d",&e1);
-		printf("\nQUANTITY OF CORN\n");
-		scanf("%d",&y1);
-		printf("------------------------------------------------------------------------------------------------------------\n");
-	}
-	printf("you information is successfully updated\n");
-	printf("DO YOU WANT TO SEE YOUR UPDATED REPORT ENTER 2 FOR YES AND 1 FOR NO\n");
-	printf("--------------------------------------------------------------------------------------------------------------------\n");
-	if(r==2)
-	{
-		printf("QUANTITY OF RICE : %dKG\n",b1);
-		printf("QUANTITY OF WHEAT : %dKG\n",c1);
-		printf("QUANTITY OF SUGARCANE : %dKG\n",e1);
-		printf("QUANTITY OF CORN : %dKG\n",y1);
-	}
-	printf("----------------------------------------------------------------------------------------------------------------\n");
-	printf("\n");
 
-	printf("DO YOU WANT TO SPECIFY PRICES FOR PER KG OF YOUR PRODUCTS THEN ENTER 3 :");
-	scanf("%d",&u);
-	printf("\n");
-	if(u==3)
-	{
-	printf("PRICE OF RICE PER KG :");
-	scanf("%d",&p1);
-	printf("\nPRICE OF WHEAT PER KG :");
-	scanf("%d",&p2);
-	printf("\nPRICE OF SUGARCANE PER KG :");
-	scanf("%d",&p3);
-	printf("\n PRICE OF CORN PER KG");
-	scanf("%d",&p4);
-	printf("\n");
+	int opt;
+				
+	productname.push_back("RICE   ");
+	productname.push_back("WHEAT  ");
+	productname.push_back("CORN   ");
+	productname.push_back("SUGERCANE"); 	
+	productquantity.push_back("50");
+	productquantity.push_back("65");
+	productquantity.push_back("75");
+	productquantity.push_back("90");
+
+	productprice.push_back("15");
+	productprice.push_back("20");
+	productprice.push_back("30");
+	productprice.push_back("25");
+
+	cout<<"Product Name \t Product Quantity \t Product Price \n";
+		
+	for(int i=0;i<productname.size();i++){
+		cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
+	}	
+	cout<<"Enter 1 for Adding Item 2 to continue : ";
+	cin>>opt;
+	if(opt==1){
+		additem();
+	}
+	cout<<"Enter 1 for modifing any item 2 to continue : " ;
+	cin>>opt;
+	if(opt==1){
 
 	}
-	printf("---------------------------------------------------------------------------------------------------------------\n");
-	printf("DO YOU WANT TO SEE UPDATED PRICES\n");
-	printf("IF YES ENTER 1\n");
-	scanf("%d",&y2);
-	printf("---------------------------------------------------------------------------------------------------------------\n");
-	if(y2==1)
-	{
-		printf("PRICE OF RICE PER KG IS RS  %d\n",p1);
-		printf("PRICE OF WHEAT PER KG IS RS  %d\n",p2);
-		printf("PRICE OF SUGARCANE PER KG IS RS  %d\n",p3);
-		printf("PRICE OF CORN PER KG IS RS  %d\n",p4);
-	}
-	printf("---------------------------------------------------------------------------------------------------------------\n");
+}
 
+int additem(){
+	int opt;
+	while(1){
+		string prodname;
+		string prodquantity;
+		cout<<"Enter product name : ";
+		cin>>prodname;
+		cout<<"Enter product quantity : ";
+		cin>>prodquantity;
+		productname.push_back(prodname);
+		productquantity.push_back(prodquantity);
+		cout<<"Enter 1 for adding more product 2 for continue : ";
+		cin>>opt;
+		if(opt==2){
+			break;
+		}
+		cout<<"Updated list :  \n";
+		cout<<"Product Name \t Product Quantity \t Product Price \n";
+		
+		for(int i=0;i<productname.size();i++){
+			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
+		}	
+		
+	}
 }
