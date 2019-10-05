@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int ini();
+int login();
 int loginconsumer();
 int loginfarmer();
 int menuconsumer();
@@ -20,42 +20,19 @@ vector <string> usernamefarmer;
 
 int main(){
 	system("COLOR F0");
+	login();
+}
+
+
+int login(){
 	int opt;
-	cout<<"Enter 1 for cunsumer login and 2 for farmer login : ";
+	cout<<"Enter 1 for consumer and 2 for farmer : ";
 	cin>>opt;
 	if(opt==1){
 		loginconsumer();
 	}else if(opt==2){
 		loginfarmer();
   	}
-}
-
-
-int ini(){
-	
-	usernamefarmer.push_back("RAM");
-	usernamefarmer.push_back("KANTI");
-	usernamefarmer.push_back("RAJ");
-	usernamefarmer.push_back("MUKESH");
-	usernamefarmer.push_back("LALA");
-	
-	productname.push_back("RICE");
-		productname.push_back("WHEAT");
-		productname.push_back("CORN");
-		productname.push_back("SUGERCANE"); 
-		
-		productquantity.push_back("50");
-		productquantity.push_back("65");
-		productquantity.push_back("75");
-		productquantity.push_back("90");
-
-		productprice.push_back("15");
-		productprice.push_back("20");
-		productprice.push_back("30");
-		productprice.push_back("25");
-
-	
-	
 }
 
 
@@ -114,7 +91,7 @@ int loginconsumer(){
 
 
 int loginfarmer(){
-	int opt,x,y;
+	int opt;
 	string user;
 	string pass;
 	
@@ -170,12 +147,11 @@ int loginfarmer(){
 	
 	
 	int menuconsumer(){
-		ini();
 	string proname;
     int aaa[100],j=0,i,k,p,t;
     while(1)
     {
-    cout<<"what are you want to buy ";
+    cout<<"what do you want to buy ";
     cin>>proname;
     cout<<"discription about your demand\n";
     for(i=0;i<usernamefarmer.size();i++)
@@ -186,12 +162,12 @@ int loginfarmer(){
           break;
         }
     }
-        cout<<"Product Name \t Product Quantity \t Product Price \n";
-        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t"<<productquantity[p]<<"\n";
+        cout<<"Farmer Name \t Product Quantity(quintal) \t Product Price(per quintal)\n";
+        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t\t"<<productquantity[p]<<"\n";
     srand(time(0));
     for(k=0;k<usernamefarmer.size();k++){
     	if(k!=p){
-        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%50+50<<"\t\t\t"<<rand()%100+50<<"\n";
+        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%10+20<<"\t\t\t\t"<<rand()%85+1100<<"\n";
     	}
 	}
         cout<<"you want to see more item ? enter 1 for yes enter 2 for no" ;
@@ -210,17 +186,17 @@ int loginfarmer(){
 		productname.push_back("RICE");
 		productname.push_back("WHEAT");
 		productname.push_back("CORN");
-		productname.push_back("SUGERCANE"); 
+		productname.push_back("MAZE"); 
 		
-		productquantity.push_back("50");
-		productquantity.push_back("65");
-		productquantity.push_back("75");
-		productquantity.push_back("90");
+		productquantity.push_back("20");
+		productquantity.push_back("25");
+		productquantity.push_back("32");
+		productquantity.push_back("27");
 
-		productprice.push_back("15");
-		productprice.push_back("20");
-		productprice.push_back("30");
-		productprice.push_back("25");
+		productprice.push_back("1250");
+		productprice.push_back("1270");
+		productprice.push_back("1200");
+		productprice.push_back("1225");
 
 		cout<<"Product Name \t Product Quantity \t Product Price \n";
 		
@@ -232,10 +208,10 @@ int loginfarmer(){
 		if(opt==1){
 			additem();
 		}
-		cout<<"Enter 1 for modifing any item 2 to continue : " ;
+		cout<<"Enter 1 for going to login page any item 2 to continue : " ;
 		cin>>opt;
 		if(opt==1){
-			
+			login();
 		}
 		
 		
@@ -271,5 +247,3 @@ int additem(){
 		
 	
 }
-		
-		
