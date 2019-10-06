@@ -10,6 +10,7 @@ int menuconsumer();
 int menufarmer(int x);
 int additem();
 int modifyitem();
+int govsch();
 
 vector <string> productname;
 vector <string> productquantity;
@@ -199,6 +200,7 @@ int loginfarmer(){
     int aaa[100],j=0,i,k,p,t;
     while(1)
     {
+    char dev[3]={'Y','N'};
     cout<<"what do you want to buy ";
     cin>>proname;
     cout<<"discription about your demand\n";
@@ -210,12 +212,12 @@ int loginfarmer(){
           break;
         }
     }
-        cout<<"Farmer Name \t Product Quantity(quintal) \t Product Price(per quintal)\t Contact Number \n";
-        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t\t"<<productquantity[p]<<"\t\t\t\t"<<usernumber[p]<<"\n";
+        cout<<"Farmer Name \t Product Quantity(quintal) \t Product Price(per quintal)\t Contact Number \t\tDelivery \n";
+        cout<<usernamefarmer[p]<<"\t\t"<<productprice[p]<<"\t\t\t\t"<<productquantity[p]<<"\t\t\t\t"<<usernumber[p]<<"\t\t\t"<<dev[rand()%2]<<"\n";
     srand(time(0));
     for(k=0;k<usernamefarmer.size();k++){
     	if(k!=p){
-        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%10+20<<"\t\t\t\t"<<rand()%85+1100<<"\t\t\t\t"<<usernumber[k]<<"\n";
+        	cout<<usernamefarmer[k]<<"\t\t"<<rand()%10+20<<"\t\t\t\t"<<rand()%85+1100<<"\t\t\t\t"<<usernumber[k]<<"\t\t\t"<<dev[rand()%2]<<"\n";
     	}
 	}
         cout<<"you want to see more item ? enter 1 for yes enter 2 for no" ;
@@ -262,16 +264,27 @@ int loginfarmer(){
 		for(int i=0;i<productname.size();i++){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
 		}	
+
+		
 		cout<<"Enter 1 for Adding Item 2 to continue : ";
 		cin>>opt;
 		if(opt==1){
 			additem();
 		}
+
+
 		cout<<"Enter 1 to modify item and 2 to continue : " ;
 		cin>>opt;
 		if(opt==1){
 			modifyitem();
 		}
+
+		cout<<"Press 1 for knowing government schemes 2 to continue : ";
+		cin>>opt;
+		if(opt==1){
+			govsch();
+		}
+
 		cout<<"Enter 1 to go back to login page and 2 to contiue : ";
 		cin>>opt;
 		if(opt==1){
@@ -345,5 +358,8 @@ int modifyitem(){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
 		}
 }
-		
-	
+
+
+int govsch(){
+	cout<<"\n\nSoil Health Card Scheme \nPradhan Mantri Fasal Bima Yojana (PMFBY) \nNeem Coated Urea (NCU) \nParamparagat Krishi Vikas Yojana (PKVY) \n\n\n";
+}
