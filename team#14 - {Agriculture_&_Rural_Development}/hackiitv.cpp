@@ -84,7 +84,15 @@ int loginconsumer(){
 				cout<<"Invalid username or password";
 			}
 		}else if(opt==2){
+			reenterconsumer:
 			cout<<"enter username : ";
+			cin>>user;
+			for(int i=0;i<username.size();i++){
+				if(username[i]==user){
+					cout<<"Username already taken \n";
+					goto reenterconsumer ;
+				}
+			}
 			cin>>user;
 			cout<<"Enter password : ";
 			cin>>pass;
@@ -93,7 +101,7 @@ int loginconsumer(){
 			if(pass==passconf){
 				username.push_back(user);
 				password.push_back(pass);
-				cout<<"Registration successful : \n";
+				cout<<"\nRegistration successful : \n\n";
 			}else{
 				cout<<"Password not match : \n Try again \n";
 			}
@@ -155,8 +163,15 @@ int loginfarmer(){
 				cout<<"Invalid username or password";
 			}
 		}else if(opt==2){
+			reenterfarmer:
 			cout<<"enter username : ";
 			cin>>user;
+			for(int i=0;i<usernamefarmer.size();i++){
+				if(usernamefarmer[i]==user){
+					cout<<"Username already taken \n";
+					goto reenterfarmer ;
+				}
+			}
 			cout<<"Enter phone number : ";
 			cin>>numb;
 			cout<<"Enter password : ";
@@ -167,7 +182,7 @@ int loginfarmer(){
 				usernamefarmer.push_back(user);
 				usernumber.push_back(numb);
 				password.push_back(pass);
-				cout<<"Registration successful : \n";
+				cout<<"\nRegistration successful : \n\n";
 			}else{
 				cout<<"Password not match : \n Try again \n";
 			}
@@ -332,4 +347,3 @@ int modifyitem(){
 }
 		
 	
-
