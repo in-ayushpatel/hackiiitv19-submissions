@@ -84,7 +84,8 @@ int loginconsumer(){
 				cout<<"\n \n";
 				menuconsumer();
 			}else{
-				cout<<"Invalid username or password";
+				cout<<"Invalid username or password \n";
+				goto loginherecom;
 			}
 		}else if(opt==2){
 			reenterconsumer:
@@ -163,7 +164,8 @@ int loginfarmer(){
 				cout<<"\n \n";
 				menufarmer(a);
 			}else{
-				cout<<"Invalid username or password";
+				cout<<"Invalid username or password \n";
+				goto loginherefar;
 			}
 		}else if(opt==2){
 			reenterfarmer:
@@ -205,7 +207,7 @@ int loginfarmer(){
     char dev[3]={'Y','N'};
     cout<<"what do you want to buy ";
     cin>>proname;
-    cout<<"discription about your demand\n";
+    cout<<"description about your demand\n";
     for(i=0;i<usernamefarmer.size();i++)
     {
         if(proname==productname[i])
@@ -261,7 +263,7 @@ int loginfarmer(){
 			productprice.push_back("0");
 			productprice.push_back("0");
 		}
-		cout<<"Product Name \t Product Quantity \t Product Price \n";
+		cout<<"Product Name \tProduct Quantity(ql) \t Product Price \n";
 		
 		for(int i=0;i<productname.size();i++){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
@@ -318,7 +320,7 @@ int additem(){
 		}
 	}
 	cout<<"Updated list :  \n";
-	cout<<"Product Name \t Product Quantity \t Product Price \n";
+	cout<<"Product Name \tProduct Quantity(ql) \t Product Price \n";
 		
 	for(int i=0;i<productname.size();i++){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
@@ -354,7 +356,7 @@ int modifyitem(){
         break;
     }
     cout<<"Updated list :  \n";
-	cout<<"Product Name \t Product Quantity \t Product Price \n";
+	cout<<"Product Name \tProduct Quantity(ql) \t Product Price \n";
 		
 	for(int i=0;i<productname.size();i++){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
