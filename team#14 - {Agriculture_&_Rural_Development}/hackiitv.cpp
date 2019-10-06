@@ -10,6 +10,7 @@ int menuconsumer();
 int menufarmer(int x);
 int additem();
 int modifyitem();
+//int deleteitem();
 int govsch();
 
 vector <string> productname;
@@ -282,6 +283,13 @@ int loginfarmer(){
 		if(opt==1){
 			modifyitem();
 		}
+		
+		/*cout<<"Enter 1 to delete item and 2 to continue : " ;
+		cin>>opt;
+		if(opt==1){
+			deleteitem();
+		}
+		*/
 
 		cout<<"Press 1 for knowing government schemes 2 to continue : ";
 		cin>>opt;
@@ -362,6 +370,46 @@ int modifyitem(){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
 		}
 }
+
+
+/*int deleteitem(){
+	
+	string prod;
+	int a=0,b;
+	while(1)
+    {
+    cout<<"what thing you want to delete ";
+    cin>>prod;
+    for(int i=0;i<productname.size();i++)
+    {
+        if(productname[i]==prod){
+            a=i;
+            break;
+        }
+    }
+    if(a==0){
+    	cout<<"No Product matched : ";
+    	break;
+	}
+    
+    productname.erase(a);
+    productquantity.erase(a);
+    productprice.erase(a);
+    
+    cout<<"you want to modify more price if yes enter 1 if no enter 2 ";
+    cin>>b;
+    if(b==2)
+        break;
+    }
+    cout<<"Updated list :  \n";
+	cout<<"Product Name \t Product Quantity \t Product Price \n";
+		
+	for(int i=0;i<productname.size();i++){
+			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
+		}
+	
+}
+*/
 
 
 int govsch(){
