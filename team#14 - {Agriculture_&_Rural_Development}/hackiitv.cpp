@@ -22,6 +22,8 @@ vector <string> usernumber;
 
 int main(){
 	system("COLOR F0");
+	cout<<"\t\t\t***** WELCOME TO FARMERS PORTAL *****\n";
+	cout<<"\t\t\t\t\t\t- By BOT CLAN\n\n";
 	login();
 }
 
@@ -265,7 +267,7 @@ int loginfarmer(){
 			cout<<productname[i]<<"\t \t"<<productquantity[i]<<"\t \t \t"<<productprice[i]<<"\n";
 		}	
 
-		
+
 		cout<<"Enter 1 for Adding Item 2 to continue : ";
 		cin>>opt;
 		if(opt==1){
